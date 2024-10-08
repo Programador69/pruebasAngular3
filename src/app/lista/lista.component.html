@@ -1,0 +1,15 @@
+<input type="text" placeholder="Realice su busqueda de comida" [(ngModel)]="busqueda" (keydown)="obtenerInfo()" >
+
+<ul>
+    @for(comida of comidas.meals; track comida.strMeal) {
+        @if (comida.strMeal.toUpperCase().includes(busqueda.toUpperCase())) {
+            <li>
+                <p>{{comida.strMeal}}</p>
+                <figure>
+                    <img src={{comida.strMealThumb}} alt="Imagen ilustrativa de la comida" />
+                </figure>
+                <a>ID: {{comida.idMeal}}</a>
+            </li>
+        }
+    }
+</ul>
